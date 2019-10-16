@@ -24,13 +24,10 @@ document.querySelector('#sketch-guide').innerHTML = xml
 const sketchpad = Raphael.sketchpad("sketchpad", {
   width: sketchpadEl.clientWidth,
   height: sketchpadEl.clientHeight,
-    editing: true
-  });
+  editing: true
+})
 
-document.querySelector('#compare').addEventListener('click', function (e) {
-  e.preventDefault()
-
+document.querySelector('#compare').addEventListener('click', () => {
   let sketchpadStrokes = svgUtils.jsonToPathPoints(sketchpad.json())
-
   console.log(kanji.compareWithStrokes(sketchpadStrokes, sketchpadWidth, sketchpadHeight))
 })
